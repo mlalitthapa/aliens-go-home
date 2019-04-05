@@ -5,7 +5,7 @@ import CannonBase from './CannonBase'
 const Cannon = () => {
   return (
     <g id='cannon'>
-      <CannonPipe/>
+      <CannonPipe rotation={45}/>
       <CannonBase/>
     </g>
   )
