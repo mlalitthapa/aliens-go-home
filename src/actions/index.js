@@ -6,3 +6,10 @@ export const moveObjects = mousePosition => {
     mousePosition,
   }
 }
+
+// Start the game
+export const START_GAME = 'START_GAME'
+
+export const startGame = () => ({
+  type: START_GAME,
+})
