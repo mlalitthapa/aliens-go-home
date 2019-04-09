@@ -5,6 +5,7 @@ import Sky from './Sky'
 import Ground from './Ground'
 import Cannon from './cannon/Cannon'
 import Score from './Score'
+import UFO from './ufo/UFO'
 
 const Canvas = (props) => {
   const viewBox = [window.innerWidth / -2, 100 - window.innerHeight, window.innerWidth, window.innerHeight]
@@ -24,6 +25,8 @@ const Canvas = (props) => {
       <Ground/>
       <Cannon rotation={props.angle}/>
       <Score score={40}/>
+      <UFO position={{x: -150, y: -300}}/>
+      <UFO position={{x: 150, y: -300}}/>
     </svg>
   )
 }
