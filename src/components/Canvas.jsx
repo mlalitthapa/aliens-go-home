@@ -6,10 +6,13 @@ import Ground from './Ground'
 import Cannon from './cannon/Cannon'
 import Score from './Score'
 import UFO from './ufo/UFO'
+import StartGame from './StartGame'
+import Title from './Title'
 import Life from './Life'
 
 const Canvas = (props) => {
-  const viewBox = [window.innerWidth / -2, 100 - window.innerHeight, window.innerWidth, window.innerHeight]
+  const gameHeight = 1200
+  const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight]
   return (
     <svg
       id='aliens-go-home'
@@ -26,9 +29,23 @@ const Canvas = (props) => {
       <Ground />
       <Cannon rotation={props.angle} />
       <Score score={40} />
-      <UFO position={{ x: -150, y: -300 }} />
-      <UFO position={{ x: 150, y: -300 }} />
       <Life position={{ x: -300, y: 35 }} />
+
+      {
+        !props.gameState.started &&
+        <g>
+          <StartGame onClick={props.startGame} />
+          <Title />
+        </g>
+      }
+
+      {
+        props.gameState.started &&
+        <g>
+          <UFO position={{ x: -150, y: -300 }} />
+          <UFO position={{ x: 150, y: -300 }} />
+        </g>
+      }
     </svg>
   )
 }
@@ -36,6 +53,12 @@ const Canvas = (props) => {
 Canvas.propTypes = {
   angle: PropTypes.number.isRequired,
   trackMouse: PropTypes.func.isRequired,
+  gameState: PropTypes.shape({
+    started: PropTypes.bool.isRequired,
+    kills: PropTypes.number.isRequired,
+    lives: PropTypes.number.isRequired,
+  }),
+  startGame: PropTypes.func.isRequired,
 }
 
 export default Canvas
