@@ -11,11 +11,11 @@ class App extends Component {
     }, 10)
 
     window.onresize = () => {
-      const cnv = document.getElementById('aliens-go-home');
-      cnv.style.width = `${window.innerWidth}px`;
-      cnv.style.height = `${window.innerHeight}px`;
-    };
-    window.onresize();
+      const cnv = document.getElementById('aliens-go-home')
+      cnv.style.width = `${window.innerWidth}px`
+      cnv.style.height = `${window.innerHeight}px`
+    }
+    window.onresize()
   }
 
   trackMouse (event) {
@@ -26,6 +26,8 @@ class App extends Component {
     return (
       <Canvas
         angle={this.props.angle}
+        gameState={this.props.gameState}
+        startGame={this.props.moveObjects}
         trackMouse={event => this.trackMouse(event)}
       />
     )
@@ -34,7 +36,13 @@ class App extends Component {
 
 App.propTypes = {
   angle: PropTypes.number.isRequired,
+  gameState: PropTypes.shape({
+    started: PropTypes.bool.isRequired,
+    kills: PropTypes.number.isRequired,
+    lives: PropTypes.number.isRequired,
+  }),
   moveObjects: PropTypes.func.isRequired,
+  startGame: PropTypes.func.isRequired,
 }
 
 export default App
