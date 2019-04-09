@@ -8,6 +8,7 @@ import Score from './Score'
 import UFO from './ufo/UFO'
 import Life from './Life'
 import StartGame from './StartGame'
+import Title from './Title'
 
 const Canvas = (props) => {
   const viewBox = [window.innerWidth / -2, 100 - window.innerHeight, window.innerWidth, window.innerHeight]
@@ -23,6 +24,7 @@ const Canvas = (props) => {
           <feDropShadow dx="1" dy="1" stdDeviation="2" />
         </filter>
       </defs>
+      <Title/>
       <Sky />
       <Ground />
       <Cannon rotation={props.angle} />
