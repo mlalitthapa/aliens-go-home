@@ -11,7 +11,8 @@ import StartGame from './StartGame'
 import Title from './Title'
 
 const Canvas = (props) => {
-  const viewBox = [window.innerWidth / -2, 100 - window.innerHeight, window.innerWidth, window.innerHeight]
+  const gameHeight = 1200
+  const viewBox = [window.innerWidth / -2, 100 - gameHeight, window.innerWidth, gameHeight]
   return (
     <svg
       id='aliens-go-home'
@@ -24,7 +25,6 @@ const Canvas = (props) => {
           <feDropShadow dx="1" dy="1" stdDeviation="2" />
         </filter>
       </defs>
-      <Title/>
       <Sky />
       <Ground />
       <Cannon rotation={props.angle} />
@@ -33,6 +33,7 @@ const Canvas = (props) => {
       <UFO position={{ x: 150, y: -300 }} />
       <Life position={{ x: -300, y: 35 }} />
       <StartGame onClick={() => console.log('Start Game')} />
+      <Title/>
     </svg>
   )
 }
