@@ -59,7 +59,7 @@ Life.propTypes = {
   position: PropTypes.shape({
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
-  }).isRequired(),
+  }).isRequired,
 }
 
 export default Life

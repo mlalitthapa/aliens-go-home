@@ -6,6 +6,7 @@ import Ground from './Ground'
 import Cannon from './cannon/Cannon'
 import Score from './Score'
 import UFO from './ufo/UFO'
+import Life from './Life'
 
 const Canvas = (props) => {
   const viewBox = [window.innerWidth / -2, 100 - window.innerHeight, window.innerWidth, window.innerHeight]
@@ -21,12 +22,13 @@ const Canvas = (props) => {
           <feDropShadow dx="1" dy="1" stdDeviation="2" />
         </filter>
       </defs>
-      <Sky/>
-      <Ground/>
-      <Cannon rotation={props.angle}/>
-      <Score score={40}/>
-      <UFO position={{x: -150, y: -300}}/>
-      <UFO position={{x: 150, y: -300}}/>
+      <Sky />
+      <Ground />
+      <Cannon rotation={props.angle} />
+      <Score score={40} />
+      <UFO position={{ x: -150, y: -300 }} />
+      <UFO position={{ x: 150, y: -300 }} />
+      <Life position={{ x: -300, y: 35 }} />
     </svg>
   )
 }
