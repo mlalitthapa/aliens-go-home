@@ -9,12 +9,12 @@ export default (state) => {
   if (!state.gameState.started) return state //Game not started
 
   const now = (new Date()).getTime()
-  const { lastObjectCreatedAt, fLyingObjects } = state.gameState
+  const { lastObjectCreatedAt, flyingObjects } = state.gameState
 
   // Check if its time to create new flying object
   const createNewObject = (
     now - (lastObjectCreatedAt).getTime() > INTERVAL &&
-    fLyingObjects.length < MAX_OBJECTS
+    flyingObjects.length < MAX_OBJECTS
   )
   if (!createNewObject) return state // No need to create new object
 
